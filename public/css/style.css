@@ -1,0 +1,84 @@
+  .carousel { z-index: -99; } /* keeps this behind all content */
+  .carousel .item {
+  position: fixed;
+   opacity: 0;
+   left:0 !important;
+  width: 100%; height: 100%;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  }
+  .carousel .one {
+  background: url(../images/sausage_black_puding.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .two {
+  background: url(../images/japanese_ramen.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .three {
+  background: url(../images/enoki_shitake.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .four {
+  background: url(../images/buttered_rolls.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .five {
+  background: url(../images/cappucchino.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .six {
+  background: url(../images/salad_tuna.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .seven {
+  background: url(../images/champers.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .eight {
+  background: url(../images/sausage_black_puding.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+
+  .carousel .active {
+  opacity: 1 !important;
+  }
+
+  .carousel .left {
+  opacity: 1 !important;
+  -webkit-transition: opacity 0.5s  !important;
+  -moz-transition: opacity 0.5s  !important;
+  -ms-transition: opacity 0.5s  !important;
+  -o-transition: opacity 0.5s  !important;
+  transition: opacity 0.5s  !important;
+  }
+
+/* Style for Table region */
+
+tr {
+width: 100%;
+display: inline-table;
+table-layout: fixed;
+}
+
+table{
+ height:350px;              // <-- Select the height of the table
+ display: -moz-groupbox;    // Firefox Bad Effect
+}
+tbody{
+  overflow-y: auto;
+  height: 300px;            //  <-- Select the height of the body
+  width: 100%;
+  position: absolute;
+}
