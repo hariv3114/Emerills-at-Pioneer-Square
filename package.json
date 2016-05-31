@@ -1,7 +1,7 @@
 {
   "name": "node-food-item",
   "version": "0.0.1",
-  "description": "Simple Food Item billing application.",
+  "description": "Simple Restaurant Table interactive application.",
   "main": "server.js",
   "author": "hariv3114",
   "dependencies": {
