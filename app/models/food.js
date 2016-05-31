@@ -13,6 +13,11 @@ module.exports = mongoose.model('Food',{
     price: {
         type: Number,
         default: 0
-    }
+    },
 
+    // Quantity of the Item
+    qty: {
+        type: Number,
+        default: 0
+    }
 });

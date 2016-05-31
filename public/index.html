@@ -1,13 +1,13 @@
 <!doctype html>
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="scotchFoods">
+<html ng-app="emerills">
 <head>
 	<!-- META -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
-
-	<title>Node/Angular Food App </title>
+    <link href="../images/chef_fav.ico" rel="shortcut icon" type="image/x-icon" />
+	<title>Emerill's</title>
 
 	<!-- jQuery library fro bootstrap-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -38,10 +38,10 @@
 <body ng-controller="mainController">
 
 	<div class="container">
-		<nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
 	  <div class="container-fluid">
 	      <h1><div class="navbar-header col-md-8">
-	    <h1><b>EMERIL's at Pioneer Square</b></h1>
+	    <h1><b>EMERILL's at Pioneer Square</b></h1>
 	    </div></h1>
 	  </div>
 	</nav>
@@ -63,10 +63,14 @@
 		<div class="container">
 			<span><br></br></span>
 		</div>
-		<!-- HEADER AND FOOD ITEMS COUNT -->
+    
+<!--    Container for the food items and their functions-->
+    <div class="container-fluid form-position">
+        <div class="container col-md-10 foodformbg">
+        		<!-- HEADER AND FOOD ITEMS COUNT -->
 		<div class="jumbotron text-center">
 			<!-- <h1><b>  EMERIL's at PIONEER SQUARE </b> </h1><br></br> -->
-			<h1><b> Items in order </b><span></span>  <span class="label label-danger">{{ foods.length }}</span> </h1>
+			<a href="#page2"><h1><b> Items in order </b><span></span>  <span class="label label-danger">{{ foods.length }}</span> </h1></a>
 		</div>
 
 
@@ -75,24 +79,27 @@
 		</div>
 
 		<!-- Food Items LIST -->
-		<div id="food-list" class="row well">
-			<div class="container table_scroll">
+        <div >
+            <div id="food-list" class="row well">
+			<div class="table_scroll">
 				<!-- LOOP OVER THE FOOD ITEMS IN $scope.foods -->
 				<div class="table_scroll table-responsive">
 					<table class="table table-striped table-hover text-center col-md-8">
 						 <!-- table headers -->
 						<thead>
 							<th class="text-center"> FOOD ITEM </th>
-							<th class="text-center"> PRICE OF ITEM </th>
+							<th class="text-center"> Quantity </th>
+                            <th class="text-center"> PRICE OF ITEM </th>
 							<th class="text-center"> Remove Item </th>
 						</thead>
 
 						 <!-- Food data -->
 						 <tbody>
-					  <tr  ng-repeat="food in foods">
+					  <tr ng-repeat="food in foods">
 					    <td class="text-left"><h4><b>{{ food.name}}</b></h4></td>
-					    <td class="text-center"><h5><b>$ {{ food.price }}</b></h5></td>
-							<td class="text-center"> <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteFoodItem(food._id)"></span> </td>
+                        <td class="text-center"><h5> {{food.qty}}</h5> </td>
+					    <td class="text-center"><h5><b>$ {{ food.price }}</b></h5></td>                        
+				        <td class="text-center"> <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteFoodItem(food._id)"></span> </td>
 					  </tr>
 					</tbody>
 					</table>
@@ -104,6 +111,8 @@
 
 			</div>
 		</div>
+        </div>
+
 
 		<!-- FORM TO CREATE FOOD ITEMS -->
 		<div id="food-form" class="row">
@@ -112,15 +121,38 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.name and formData.price IN ANGULAR -->
-						<div class="input-group input-group-lg">
-						  <span class="input-group-addon" id="basic-addon3"><b>Food Item </b></span>
-						  <input type="text" class="form-control" aria-describedby="basic-addon3" ng-model="formData.name">
-						</div>
+						<div class="container col-md-12">
+                            <div class="col-md-12 input-group input-group-lg">
+                              <span class="input-group-addon" id="basic-addon3"><b>Food Item </b></span>
+                              <input type="text" class="form-control" aria-describedby="basic-addon3" ng-model="formData.name">
+                            </div>
+
+                        </div>
+
 						<br>
-						<div class="input-group input-group-lg"><span class="input-group-addon" id="basic-addon3"><b>Price of Item $ </b></span>
+                        <div class="col-md-12">
+                           <div class="col-md-5 input-group input-group-lg">
+                                <span class="input-group-addon"><b>Quantity</b></span>
+                                <select class="form-control selectpicker" ng-model="formData.qty">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        
+						  <div class="col-md-7 input-group input-group-lg"><span class="input-group-addon" id="basic-addon3"><b>Price of Item $ </b></span>
 						  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" ng-model="formData.price">
 						  <span class="input-group-addon">.00</span>
+                       
+						  </div>
+                        </div>
+                        <br>
+<!--
+                        <div class="input-group input-group-lg"><span class="input-group-addon" id="basic-addon3"><b>Quantity</b></span>
+						  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" ng-model="formData.qty">
 						</div>
+-->
 
 
 					</div>
@@ -134,7 +166,7 @@
 					<div class="row">
 						<div class="col-md-6">
 
-								<button type="button" class="btn btn-primary btn-lg" ng-click="createFoodItem()">
+								<button type="button" class="btn btn-primary " ng-click="createFoodItem()">
 						<h1>	<b>Add a Food</b> </h1>
 						</button>
 						</div>
@@ -143,7 +175,7 @@
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-md-12">
-										 <button type="button" class="btn btn-danger btn-lg" id="modal-388234" href="#modal-container-388234" data-toggle="modal" ng-click="getTotal()">
+										 <button type="button" class="btn btn-danger" id="modal-388234" href="#modal-container-388234" data-toggle="modal" ng-click="getTotal()">
 												 <h1><b>Get Total bill</b></h1>
 										 </button>
 										<div class="modal fade" id="modal-container-388234" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -159,9 +191,34 @@
 														</h4>
 													</div>
 													<div class="modal-body">
-														<div ng-hide="showTotal" class="container  btn btn-lg btn-danger">
+														<div ng-hide="showTotal" class="container">
 															<div>
-																<h1>	<label> ${{total}} </label> </h1> (incl. of Taxes)
+                                                                
+                                                                <table class="table table-boredred">
+                                                                    <thead>
+                                                                     <tr>
+                                                                        <th>Sr.no</th><th>Food Item</th><th>Quantity</th><th>Rate</th><th>Amount</th>                                                                    
+                                                                    `</tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr ng-repeat="food in foods">
+                                                                            <td>{{$index+1}}</td>
+                                                                            <td>{{food.name}}</td>
+                                                                            <td>{{food.qty}}</td>
+                                                                            <td>{{food.price}}</td>
+                                                                            <td>{{(food.price)*(food.qty)}}</td>                                    
+                                                                        </tr>
+                                                                        <tr>
+                                                                        <td></td><td></td><td><b>Total </b></td><td>{{total}}</td>
+                                                                        </tr>
+                                                                        <tr><td></td><td></td><td><b>Tax </b></td><td>{{tax}}</td></tr>
+                                                                        <tr><td></td><td></td><td><b>Net Total </b> </td><td>{{net_total}}</td></tr>                                                                        
+                                                                    </tbody>                                                        
+                                                                </table>
+                                                                <div class="btn btn-lg btn-danger">
+                                                                <h1>	<label> ${{net_total}} </label> </h1> (incl. of Taxes)
+                                                                </div>
+																
 															</div>
 														</div>
 													</div>
@@ -189,13 +246,16 @@
 				</form>
 			</div>
 		</div>
-
+    </div>
+    
+    </div>
 
 	</div>
 
+
 	<div><span><br><br></span> </div>
 	<div><span><br><br></span> </div>
 	<div><span><br><br></span> </div>
-<div class="legal-copy s-col-xs-12 s-col-sm-6 text-center"><h2><label class="label label-info"> © 2016 <a href="https://github.com/hariv3114">hariv3114</a> • All rights reserved.</label></h2></div>
+<div class="legal-copy s-col-xs-12 s-col-sm-6 text-center"><h2><label class="label"> © 2016 <a href="https://github.com/hariv3114" class="btn btn-default">hariv3114</a> • All rights reserved.</label></h2></div>
 </body>
 </html>

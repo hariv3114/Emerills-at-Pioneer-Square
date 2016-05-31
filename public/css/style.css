@@ -82,3 +82,26 @@ tbody{
   width: 100%;
   position: absolute;
 }
+
+
+/* background for the food item form container */
+
+.foodformbg{
+    background: #FFFFFF;
+    border: 25px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 10px;
+}
+
+.table thead {
+    text-align: center;
+    
+}
+
+.form-position{
+    padding-top: 100px;
+    
+}

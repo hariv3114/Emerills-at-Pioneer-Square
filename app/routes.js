@@ -1,3 +1,4 @@
+// Takes the mongoose model object
 var Food = require('./models/food');
 
 
@@ -22,14 +23,18 @@ function getTotal(res){
       }
       // Assign a variable for the total price
       var total_price = 0;
+      var net_total = 0;
+      var tax = 0.075;
       // Iterate over the retrieved food values to find the total
 			for (var i = 0; i < foods.length; i++) {
-							total_price += parseInt(foods[i].price);
+				total_price += parseInt(foods[i].price);
 			}
 
       // include the 7.5% TAX
-      total_price = total_price + (7.5/100) * total_price;
-      res.json(total_price);
+      net_total = total_price + tax * total_price;
+      
+     var result_total = [{'tax': tax},{'total_price': total_price},{'net_total' : net_total}];
+     res.send(result_total);
     });
 };
 
@@ -49,11 +54,11 @@ module.exports = function (app) {
         Food.create({
             name: req.body.name,
             price: req.body.price,
+            qty: req.body.qty,
             done: false
         }, function (err, food) {
             if (err)
                 res.send(err);
-
             // get and return all the food items after you create another
             getFoods(res);
         });
@@ -78,7 +83,12 @@ module.exports = function (app) {
     });
 
     // application -------------------------------------------------------------
-    app.get('*', function (req, res) {
+    app.get('/*', function (req, res) {
         res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
+    
+    // When routed to billing
+//     app.get('/index', function (req, res) {
+//        res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+//    });
 };
