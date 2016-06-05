@@ -1,6 +1,6 @@
 # Node FOOD ITEMS App
 
-A single page application built on MEAN stack aligning to a simple interactive application at a restaurant table.
+A single page application built on MEAN stack aligning to a simple interactive billing application at a restaurant table.
 
 Node provides the RESTful API. Angular provides the frontend and accesses the API. MongoDB persists the data.
 
