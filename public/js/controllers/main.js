@@ -11,8 +11,8 @@ angular.module('foodcontroller', [])
 		$scope.formData = {};
 		$scope.loading = true;
 		$scope.total = 0;
-        	$scope.tax = 5;
-        	$scope.net_total = 0;
+        $scope.tax = 5;
+        $scope.net_total = 0;
 		$scope.showTotal = true;
 
 		// GET =====================================================================

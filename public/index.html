@@ -4,8 +4,7 @@
 <html ng-app="emerills">
 <head>
 	<!-- META -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"> <!-- Optimize mobile viewport -->
     <link href="../images/chef_fav.ico" rel="shortcut icon" type="image/x-icon" />
 	<title>Emerill's</title>
 
@@ -38,27 +37,30 @@
 <body ng-controller="mainController">
 
 	<div class="container">
-        <nav class="navbar navbar-default navbar-fixed-top">
+<!--         <nav class="navbar navbar-default navbar-fixed-top">
 	  <div class="container-fluid">
 	      <h1><div class="navbar-header col-md-8">
-	    <h1><b>EMERILL's at Pioneer Square</b></h1>
+	    <h1><b>EMERILL's at Pioneer Square Table</b></h1>
 	    </div></h1>
 	  </div>
-	</nav>
+	</nav> -->
+		
+	 <% include ../views/partials/header %>
 		<!-- Background Slider for theme -->
-		<div id="myCarousel" class="carousel container slide">
+		<div class="container col-mod-8"><div id="myCarousel" class="carousel container slide">
 			<div class="carousel-inner">
 			        <div class="active item one"></div>
 			        <div class="item two"></div>
 			        <div class="item three"></div>
-							<div class="item four"></div>
-							<div class="item five"></div>
-							<div class="item six"></div>
-							<div class="item seven"></div>
-							<div class="item eight"></div>
+					<div class="item four"></div>
+					<div class="item five"></div>
+					<div class="item six"></div>
+					<div class="item seven"></div>
+					<div class="item eight"></div>
 
 			</div>
-		</div>
+			</div>
+		 </div>
 
 		<div class="container">
 			<span><br></br></span>
@@ -66,7 +68,7 @@
     
 <!--    Container for the food items and their functions-->
     <div class="container-fluid form-position">
-        <div class="container col-md-10 foodformbg">
+        <div class="container col-md-12 foodformbg">
         		<!-- HEADER AND FOOD ITEMS COUNT -->
 		<div class="jumbotron text-center">
 			<!-- <h1><b>  EMERIL's at PIONEER SQUARE </b> </h1><br></br> -->
@@ -84,7 +86,7 @@
 			<div class="table_scroll">
 				<!-- LOOP OVER THE FOOD ITEMS IN $scope.foods -->
 				<div class="table_scroll table-responsive">
-					<table class="table table-striped table-hover text-center col-md-8">
+					<table class="table table-compressed table-hover text-center col-md-10">
 						 <!-- table headers -->
 						<thead>
 							<th class="text-center"> FOOD ITEM </th>
@@ -117,7 +119,7 @@
 		<!-- FORM TO CREATE FOOD ITEMS -->
 		<div id="food-form" class="row">
 			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<form>
+				<form class="form">
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.name and formData.price IN ANGULAR -->
@@ -241,9 +243,7 @@
 						</div>
 					</div>
 				</div>
-
-
-				</form>
+			  </form>
 			</div>
 		</div>
     </div>
