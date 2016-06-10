@@ -7,7 +7,7 @@ Node provides the RESTful API. Angular provides the frontend and accesses the AP
 ## Requirements
 
 - [Node and npm](http://nodejs.org)
-- MongoDB: Make sure you have your own local and remote is not available
+- [MongoDB](https://www.mongodb.com/) and [Mongoose](http://mongoosejs.com/): Make sure you have your own local and remote is not available
 
 ## Installation
 
