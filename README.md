@@ -12,7 +12,7 @@ Node provides the RESTful API. Angular provides the frontend and accesses the AP
 ## Installation
 
 
-1. Clone the repository: `git clone git@github.com:hariv3114/Emerils-at-Pioneer-Square`
+1. Clone the repository: `git clone git@github.com:hariv3114/Emerills-at-Pioneer-Square`
 2. Install the application: `npm install`
 3. Place your own MongoDB URI in `config/database.js`
 3. Start the server: `node server.js`
