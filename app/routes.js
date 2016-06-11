@@ -1,6 +1,8 @@
+
 var Food = require('./models/food');
 var Menu = require('./models/menu_foods');
 var initial_menu = require('./documents/menu_foods');
+
 
 function getFoods(res) {
     Food.find(function (err, foods) {
@@ -24,14 +26,17 @@ function getTotal(res){
       // Assign a variable for the total price
       var total_price = 0;
       var net_total = 0;
+
       var tax = 7.5;
       var bill_details ='';
+
       // Iterate over the retrieved food values to find the total
 			for (var i = 0; i < foods.length; i++) {
 				total_price += parseInt(foods[i].price);
 			}
 
       // include the 7.5% TAX
+
       net_total = total_price + (tax/100) * total_price;
       bill_details = [{
                         "total":total_price,
@@ -56,12 +61,14 @@ function getItemPrice(res, req){
 		
 }
 
+
 module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
     // get all Food items
     app.get('/api/food', function (req, res) {
-        // use mongoose to get all food items in the databasegetPricegetPrice
+        // use mongoose to get all food items in the database
+
         getFoods(res);
     });
 
@@ -77,7 +84,6 @@ module.exports = function (app) {
         }, function (err, food) {
             if (err)
                 res.send(err);
-
             // get and return all the food items after you create another
             getFoods(res);
         });
@@ -96,7 +102,6 @@ module.exports = function (app) {
         }, function (err, food) {
             if (err)
                 res.send(err);
-
             // get and return all the food items after you create another
             getFoods(res);
         });
@@ -120,7 +125,6 @@ module.exports = function (app) {
         getTotal(res);
     });
 	
-	
     // Load initial Menu items from menu_food.json
     app.get('/api/insertMenu', function(req, res){
         Menu.collection.insert(initial_menu,function(err, data){
@@ -143,4 +147,10 @@ module.exports = function (app) {
     app.get('*', function (req, res) {
         res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
+
+        // When routed to billing
+//     app.get('/index', function (req, res) {
+//        res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+//    });
+
 };

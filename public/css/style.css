@@ -78,6 +78,72 @@ body {
 	background-image: url(../images/ita_theme.jpg);
 }
 
+   /* keeps this behind all content */
+  .carousel .item {
+  position: fixed;
+   opacity: 100%;
+   left:0 !important;
+  width: 100%; height: 100%;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  }
+  .carousel .one {
+  background: url(../images/sausage_black_puding.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .two {
+  background: url(../images/japanese_ramen.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .three {
+  background: url(../images/enoki_shitake.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .four {
+  background: url(../images/buttered_rolls.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .five {
+  background: url(../images/cappucchino.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .six {
+  background: url(../images/salad_tuna.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .seven {
+  background: url(../images/champers.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+  .carousel .eight {
+  background: url(../images/sausage_black_puding.jpg);
+  background-size: cover;
+  -moz-background-size: cover;
+  }
+
+  .carousel .active {
+  opacity: 100 !important;
+  }
+
+  .carousel .left {
+  opacity: 1 !important;
+  -webkit-transition: opacity 0.5s  !important;
+  -moz-transition: opacity 0.5s  !important;
+  -ms-transition: opacity 0.5s  !important;
+  -o-transition: opacity 0.5s  !important;
+  transition: opacity 0.5s  !important;
+  }
+
 /* Style for Table region */
 
 tr {
@@ -98,6 +164,7 @@ tbody{
   width: 100%;
   position: absolute;
 }
+
 
 
 /* Start of Parallax classes */
@@ -135,4 +202,26 @@ tbody{
 
 .textcenter{
 	text-align: center;
+
+/* background for the food item form container */
+
+.foodformbg{
+    background: #FFFFFF;
+    border: 25px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 10px;
+}
+
+.table thead {
+    text-align: center;
+    
+}
+
+.form-position{
+    padding-top: 100px;
+    
+
 }

@@ -2,11 +2,9 @@ angular.module('foodController', [])
 
 	// inject the Food service factory into our controller
 	.controller('mainController', ['$scope','$http','Foods','Menu',function($scope, $http, Foods, Menu) {
-
 		// for the carousel
 			$(document).ready(function() {
 		 $('.carousel').carousel({interval: 7000});
-
 		 		$scope.pushMenu();
 	 		});
 
@@ -41,7 +39,6 @@ angular.module('foodController', [])
 		$scope.ita_sides = {pasta:'Pasta', riso:'Riso', parm:'Parmigiano Bread'};
 		$scope.mex_sides = {salad:'Salad',queso:'Chilli con Queso',taco:'Tacos'}
 		$scope.chi_sides = {wont:'Wontons', crab:'Crab Rangoon', frie:'Fried Rice',chow:'Chow Mein'};
-
 
 		// GET =====================================================================
 		// when landing on the page, get all food items and show them
@@ -176,6 +173,7 @@ angular.module('foodController', [])
 
 		};
 
+
 		// Method to load initial data into MongoDB : menu_foods
 		$scope.pushMenu = function(){
 
@@ -185,5 +183,4 @@ angular.module('foodController', [])
 				console.log(' Menu Loaded ');
 			});
 		};
-
 	}]);

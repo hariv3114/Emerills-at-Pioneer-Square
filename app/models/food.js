@@ -14,6 +14,7 @@ module.exports = mongoose.model('Food',{
         type: Number,
         default: 0
     },
+
 	quantity: {
         type: Number,
         default: 0
