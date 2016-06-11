@@ -1,0 +1,73 @@
+<section class="col-md-12">
+	<div class="container cold-md-10">
+		<div class="container-fluid">
+			<div class="col-md-10">
+			<div class="jumbotron"><h1><b> CHOOSE YOUR FOOD </b></h1></div>
+			
+			</div>
+			<div class="container col-md-12">
+			<div class="row">
+				<div class="col-md-6">
+					<select class="col-md-6 form-control select-picker" ng-model="sel_cuisine" ng-change="getFoodOptions()">
+						<option ng-repeat="cui in cuisines" >{{cui}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div>
+					<h3><select class="form-control select-picker" ng-model="entree_sel">
+							<option>Select an Entree</option>
+							<option ng-repeat="entree in sel_entree">{{entree}}</option>
+					</select></h3></div>
+						<div><h3><div class="col-md-5 input-group input-group-lg">
+                               <span class="input-group-addon"><b>Quantity</b></span>
+                                <select class="col-md-6 form-control selectpicker" ng-model="entree_qty">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                          </div></h3></div>
+				</div>
+				
+
+					
+			</div>
+			<div class="row">
+				<div class="col-md-6 divpos">
+					<select class="form-control select-picker" ng-model="side_sel">
+						<option>Select a side</option>
+						<option ng-repeat="sides in sel_side">{{sides}}</option>
+					</select>
+				</div>
+				<div class="col-md-6">
+						  <h1><div class="col-md-5 input-group input-group-lg">
+                               <span class="input-group-addon"><b>Quantity</b></span>
+                                <select class="form-control selectpicker" ng-model="side_qty">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                          </div></h1>
+					</div>
+			</div>
+			
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-6">
+
+								<button type="button" class="btn btn-primary " ng-click="addFood()">
+						<h1>	<b>Add this Food</b> </h1>
+						</button>
+						</div>
+				</div>
+					
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>

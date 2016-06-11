@@ -1,0 +1,185 @@
+	
+<!--	Start of Summary of Selected food -->
+	<section id="bill" class="sectbgmenu col-md-12">
+
+	
+	
+	
+    
+<!--    Container for the food items and their functions-->
+    <div class="form-position">
+        <div class="container col-md-12 foodformbg">
+        		<!-- HEADER AND FOOD ITEMS COUNT -->
+		<div class="jumbotron text-center">
+			<!-- <h1><b>  EMERIL's at PIONEER SQUARE </b> </h1><br></br> -->
+			<a href="#page2"><h1><b> Items in order </b><span></span>  <span class="label label-danger">{{ foods.length }}</span> </h1></a>
+		</div>
+
+
+		<div class="container">
+			<span><br></br></span>
+		</div>
+
+		<!-- Food Items LIST -->
+        <div>
+            <div id="food-list" class="row well">
+			<div class="table_scroll">
+				<!-- LOOP OVER THE FOOD ITEMS IN $scope.foods -->
+				<div class="table_scroll table-responsive">
+					<table class="table table-striped table-hover text-center col-md-8">
+						 <!-- table headers -->
+						<thead>
+							<th class="text-center"> FOOD ITEM </th>
+							<th class="text-center"> Quantity </th>
+                            <th class="text-center"> PRICE OF ITEM </th>
+							<th class="text-center"> Remove Item </th>
+						</thead>
+
+						 <!-- Food data -->
+						 <tbody>
+					  <tr ng-repeat="food in foods">
+					    <td class="text-left"><h4><b>{{ food.name}}</b></h4></td>
+                        <td class="text-center"><h5> {{food.quantity}}</h5> </td>
+					    <td class="text-center"><h5><b>$ {{ food.price }}</b></h5></td>                        
+				        <td class="text-center"> <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteFoodItem(food._id)"></span> </td>
+					  </tr>
+					</tbody>
+					</table>
+				</div>
+
+				<p class="text-center" ng-show="loading">
+					<span class="fa fa-spinner fa-spin fa-3x"></span>
+				</p>
+
+			</div>
+		</div>
+        </div>
+
+
+		<!-- FORM TO CREATE FOOD ITEMS -->
+		<div id="food-form" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form>
+<!--
+					<div class="form-group">
+
+						 BIND THIS VALUE TO formData.name and formData.price IN ANGULAR 
+						<div class="container col-md-12">
+                            <div class="col-md-12 input-group input-group-lg">
+                              <span class="input-group-addon" id="basic-addon3"><b>Food Item </b></span>
+                              <input type="text" class="form-control" aria-describedby="basic-addon3" ng-model="formData.name">
+                            </div>
+
+                        </div>
+
+						<br>
+                        <div class="col-md-12">
+                           <div class="col-md-5 input-group input-group-lg">
+                                <span class="input-group-addon"><b>Quantity</b></span>
+                                <select class="form-control selectpicker" ng-model="formData.qty">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        
+						  <div class="col-md-7 input-group input-group-lg"><span class="input-group-addon" id="basic-addon3"><b>Price of Item $ </b></span>
+						  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" ng-model="formData.price">
+						  <span class="input-group-addon">.00</span>
+                       
+						  </div>
+                        </div>
+                        <br>
+
+
+
+					</div>
+-->
+
+					<div class="container">
+						<span><br></br><br></br></span>
+					</div>
+
+					<!-- createFoodItem() WILL CREATE NEW FOOD ITEMS -->
+					<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<!-- DIALOG for showing total bill  -->
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-12">
+										 <button type="button" class="btn btn-danger" id="modal-388234" href="#bill_modal" data-toggle="modal" ng-click="getTotal()">
+												 <h1><b>Get Total bill</b></h1>
+										 </button>
+										<div class="modal fade" id="bill_modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+															×
+														</button>
+														<h4 class="modal-title" id="myModalLabel">
+															<h1><b>Total Bill</b></h1>
+														</h4>
+													</div>
+													<div class="modal-body">
+														<div ng-hide="showTotal" class="container">
+															<div>
+                                                                
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                     <tr>
+                                                                        <th>Sr.no</th><th>Food Item</th><th>Quantity</th><th>Rate</th><th>Amount</th>                                                                    
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr ng-repeat="food in foods">
+                                                                            <td>{{$index+1}}</td>
+                                                                            <td>{{food.name}}</td>
+                                                                            <td>{{food.qty}}</td>
+                                                                            <td>{{food.price}}</td>
+                                                                            <td>{{(food.price)*(food.qty)}}</td>                                    
+                                                                        </tr>
+                                                                        <tr>
+                                                                        <td></td><td></td><td><b>Total </b></td><td>{{total}}</td>
+                                                                        </tr>
+                                                                        <tr><td></td><td></td><td><b>Tax </b></td><td>{{tax}}</td></tr>
+                                                                        <tr><td></td><td></td><td><b>Net Total </b> </td><td>{{net_total}}</td></tr>                                                                        
+                                                                    </tbody>                                                        
+                                                                </table>
+                                                                <div class="btn btn-lg btn-danger">
+                                                                <h1>	<label> ${{net_total}} </label> </h1> (incl. of Taxes)
+                                                                </div>
+																
+															</div>
+														</div>
+													</div>
+													<div class="modal-footer">
+
+														<button type="button" class="btn btn-default" data-dismiss="modal">
+															Close
+														</button>
+													</div>
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				</form>
+			</div>
+		</div>
+    </div>
+    
+    </div>
+	</section>

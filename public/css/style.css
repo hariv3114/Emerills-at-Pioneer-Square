@@ -1,0 +1,138 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 5px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #000000;
+	font-family: monospace;
+	font-size: 40px;
+} 
+
+.descfnt p{
+	font-family: sabon;
+	font-size: 50px;
+	font-style: bold;
+	font-weight: 1000;
+	text-shadow: 0px 5px 5px #FFFFFF;
+}
+
+@font-face {
+    font-family: woodcut;
+    src:url(fonts/WOODCUT.TTF);
+}
+.descfnt h1{
+	font-family : woodcut;
+	font-size: 100px;
+	text-align: center;
+	
+}
+.menuheader h1{
+	font-family: sans-serif;
+	font-style: normal;
+	font-size: 75px;
+	text-align: center;
+	text-shadow: 0px 5px 5px #efffcc;
+}
+.menuheadfnt h1{
+	font-family: monospace;
+	font-size: 30px;
+}
+
+.bgdesc{
+	background-image: url(../images/spoons_lg.jpg);
+	background-repeat:no-repeat;
+    background-size:100% 100%;
+}
+
+.bgmenu{
+	background-image: url(../images/spoon_and_fork.jpg);
+	background-repeat:no-repeat;
+    background-size:100% 100%;
+}
+
+.bgchoose{
+	background: url(../images/menubg.jpg);
+	border-radius: 50px;
+}
+
+
+.addbtn{
+	font-family: woodcut;
+	border: 10px;
+	border-style: solid;
+	border-radius: 10px;
+	background-image: url(../images/addBtn.jpg);
+}
+
+
+.order{
+	background-image: url(../images/ita_theme.jpg);
+}
+
+/* Style for Table region */
+
+tr {
+width: 100%;
+display: inline-table;
+table-layout: fixed;
+}
+
+table{
+ height:350px;              // <-- Select the height of the table
+ display: -moz-groupbox;    // Firefox Bad Effect
+ background-image: url(../images/food-bg.jpg);
+}
+
+tbody{
+  overflow-y: auto;
+  height: 300px;            //  <-- Select the height of the body
+  width: 100%;
+  position: absolute;
+}
+
+
+/* Start of Parallax classes */
+
+.divpos{
+	padding-top: 10%;	
+	padding-bottom: 10%;
+}
+
+.parallax {
+	background: url(../images/sausage_black_puding.jpg) fixed repeat;
+	
+}
+
+.parallax-inner {
+	padding-bottom:  10%;
+	padding-top: 20%;
+}
+
+.parallax-sec-2{
+	background: url(../images/enoki_shitake.jpg) fixed repeat;
+}
+
+.navtransparent {
+	opacity: 2;
+}
+
+/* End of Parallax classes */
+
+/* Simple section backgrounds and button classes */
+.sectbgmenu{
+  background: #012503;
+  padding-bottom: 5%;
+}
+
+.textcenter{
+	text-align: center;
+}

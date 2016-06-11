@@ -1,0 +1,301 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="scotchFoods">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+    <link href="../images/chef_fav.ico" rel="shortcut icon" type="image/x-icon" />
+	<title>Emerill's</title>
+
+	<!-- jQuery library for bootstrap-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!-- SCROLLS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<!-- Style Sheet for the carousel -->
+	<link rel="stylesheet" href="../css/style.css">
+	<style>
+		html 					{ overflow-y:scroll; }
+		body					{ padding-bottom:100px;}
+		#food-item-list 		{ margin-bottom:30px; }
+		#food-item-form 	 	{ margin-bottom:50px; }
+	</style>
+
+	<!-- SPELLS -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script><!-- load angular -->
+
+	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
+	<script src="js/services/foods.js"></script> <!-- load our food service -->
+	<script src="js/services/menu_foods.js"></script> <!-- load our menu service -->
+	<script src="js/core.js"></script> <!-- load our main application -->
+
+</head>
+<!-- SET THE CONTROLLER -->
+<body ng-controller="mainController" background="../images/wall.jpg">
+
+	<div class="container">
+     		<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-3 label label-link"><h1><b><a href="#intro">EMERILL's at Pioneer Square</a></b></h1>
+						</div>
+						<div class="col-md-3"><h1><b><span class="glyphicon glyphicon-glass"></span><a href="#menu"> MENU </a></b></h1>
+						</div>
+						<div class="col-md-3"><h1><b><span class="glyphicon glyphicon-picture"></span><a href="#bill"> ORDER SUMMARY </a></b></h1>
+						</div>
+						<div class="col-md-3 label label-link"><h1><b><span class="glyphicon glyphicon-info-sign"></span><a href="#foot"> CONTACT US </a></b></h1>
+						</div>
+					</div>
+				</div>
+			</nav>
+	</div>	   
+<div class="col-md-12">
+<!-- Division for Basic Information	-->
+	<div id="intro" class="bgdesc page-header col-lg-12 divpos jumbotron">
+			<div class="descfnt">
+				<div class="lead"><h1>Emerills - Your gLocal resto ! </h1></div>
+				<div class="">
+					<p class=""> Welcome to the one stop destination for all your taste bud bucket list. At Emerills we like you to experiecne food andnot just eat it. With every grain and spice we add we strive to bring back the sweet memories you would have had the first time your taste buds rendez-vous'ed the dish. The sound of the crispy bread, the enchanting smell of the spices, the vibrance of the dessert, the texture of the delicacy and the enchantment of the taste you would have had the first time your taste buds rendez-vous'ed the dish. We call ourselves <em> gLocal </em> because we bring the some of the most ambrosial foods from cusines renowned from all corners of the globe.  </p>
+				</div>
+			</div>
+	</div>
+	
+<!--	End of Basic Information-->
+
+<!--Menu-->
+	<div id="menu" class="bgmenu">
+	
+		<div class="divpos"> 
+			<div class="cold-md-12">
+			<div class="container-fluid">
+						<div class="col-md-10">
+							<div class="row">
+								<div class="menuheader col-md-12 col-md-offset-1">
+									<h1><b> Choose what you like to eat ! </b></h1>
+								</div>
+							</div> 
+
+						</div>
+				
+<!--Food Form-->
+		<div class="col-md-12 divpos">
+						<h1>
+							<div class="col-md-8 col-md-offset-3">
+								<div class="col-md-3 menuheadfnt">
+									<h1>Choose Your Cuisine</h1>
+								</div>
+								<div class="col-md-5"><h1>
+									<select class="form-control select-picker" ng-model="sel_cuisine" ng-change="getFoodOptions()">
+										<option ng-repeat="cui in cuisines" >{{cui}}</option>
+									</select></h1>
+								</div>
+							</div>
+						</h1>
+				
+<!--Entree-->
+
+						<div class="col-md-8 col-md-offset-3">
+							<div class="col-md-3 menuheadfnt"><h1>Thou Entree</h1></div>
+							<div class="col-md-3">
+								<h3>
+									<select class="form-control selectpicker" data-size="100px" ng-model="entree_sel">
+										<option ng-repeat="entree in sel_entree">{{entree}}</option>
+									</select>
+								</h3>
+							</div>
+							<div class="col-md-3 input-group input-group-lg">
+								<div class="col-md-3 menuheadfnt"><h1>Quantity</h1></div>
+								<div class="col-md-6 col-md-offset-3">
+									<h3><select class="form-control selectpicker" data-size="1025px" ng-model="entree_qty">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+									</select></h3>
+								</div>
+							</div>
+						</div>
+
+				
+<!--Sides-->
+					<div class="col-md-8 col-md-offset-3">
+						
+							<div class="col-md-3 menuheadfnt"><h1>Who is with your entree?</h1></div>
+								<div class="col-md-3">
+									<h3>
+										<select class="form-control selectpicker" data-size="100px" ng-model="side_sel">
+											<option ng-repeat="sides in sel_side">{{sides}}</option>
+										</select>
+									</h3>
+								</div>
+								<div class="col-md-3 input-group input-group-lg">
+									<div class="col-md-3 menuheadfnt"><h1>Quantity</h1></div>
+									<div class="col-md-6 col-md-offset-3">
+										<h3><select class="form-control selectpicker" data-size="1025px" ng-model="side_qty">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+										</select></h3>
+								</div>
+							</div>
+					</div>
+			<!--Add Food-->
+			
+					<div class="container">
+						<div class="col-md-5 col-md-offset-5">
+									<button type="button" class="addbtn" ng-click="addFood()">
+											<h1><b>Add this Food</b> </h1>
+									</button>
+						</div>
+					</div>
+			</div>
+				
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!--End of Menu-->
+	
+<!--Order Summary-->
+	<div id="bill" class="order divpos">
+	        <div class="container divpos">
+            	<div id="food-list" class="row well">
+					<div class="table_scroll">
+						<!-- LOOP OVER THE FOOD ITEMS IN $scope.foods -->
+						<div class="table_scroll table-responsive">
+							<table class="table text-center col-md-8">
+								 <!-- table headers -->
+								<thead>
+									<th class="textcenter"> FOOD ITEM </th>
+									<th class="textcenter"> Quantity </th>
+									<th class="textcenter"> Remove Item </th>
+								</thead>
+
+								 <!-- Food data -->
+								 <tbody>
+							  <tr ng-repeat="food in foods">
+								<td class="textcenter"><h4><b>{{ food.name}}</b></h4></td>
+								<td class="textcenter"><h5> {{food.quantity}}</h5> </td>
+								<td class="textcenter"> <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteFoodItem(food._id)"></span> </td>
+							  </tr>
+							</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+									<div class="container">
+						<div class="col-md-5 col-md-offset-5">
+<!--
+									<button type="button" class="addbtn" id="modal-388234" href="#modal-container-388234" data-toggle="modal" ng-	click="getTotal()">
+												 <h1><b>Get Total bill</b></h1>
+									</button>
+-->
+							
+<!--							Bill Modal-->
+							
+											<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<!-- DIALOG for showing total bill  -->
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-12">
+										 <button type="button" class="btn btn-danger" id="modal-388234" href="#bill_modal" data-toggle="modal" ng-click="getTotal()">
+												 <h1><b>Get Total bill</b></h1>
+										 </button>
+<!--		**-->
+							<div class="modal fade" id="bill_modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+															×
+														</button>
+														<h4 class="modal-title" id="myModalLabel">
+															<h1><b>Total Bill</b></h1>
+														</h4>
+													</div>
+													<div class="modal-body">
+														<div  class="container">
+															<div>
+                                                               <table class="table">
+                                                                    <thead>
+                                                                     <tr>
+                                                                        <th>Sr.no</th><th>Food Item</th><th>Quantity</th><th>Rate</th><th>Amount</th>                                                                    
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr ng-repeat="food in foods">
+                                                                            <td>{{$index+1}}</td>
+                                                                            <td>{{food.name}}</td>
+                                                                            <td>{{food.quantity}}</td>
+                                                                            <td>{{food.price}}</td>
+                                                                            <td>{{(food.price)*(food.quantity)}}</td>                                    
+                                                                        </tr>
+                                                                        <tr>
+                                                                        <td></td><td></td><td><b>Total </b></td><td>{{total}}</td>
+                                                                        </tr>
+                                                                        <tr><td></td><td></td><td><b>Tax </b></td><td>{{tax}}</td></tr>
+                                                                        <tr><td></td><td></td><td><b>Net Total </b> </td><td>{{net_total}}</td></tr>                                                                        
+                                                                    </tbody>                                                        
+                                                                </table>
+                                                                <div class="col-md-6 col-md-offset-3 btn btn-lg btn-danger">
+                                                                <h1><label> ${{net_total}} </label> </h1> (incl. of Taxes)
+                                                                </div>
+																
+															</div>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">
+															Close
+														</button>
+													</div>
+												</div>
+
+											</div>
+
+										</div>
+																		
+										
+										
+<!--**-->
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+							
+<!--							End of Bill Modal-->
+							
+						</div>
+					</div>
+        </div>
+		
+	</div>
+<!--End of Order Summary-->
+	
+	
+</div>
+	
+<div id="foot" class="footer legal-copy  s-col-xs-12 s-col-sm-6 text-center">
+	<div class="container text-center">
+		<label class="label"> © 2016 
+			<a href="https://github.com/hariv3114">hariv3114</a> 
+			• All rights reserved.</label>
+		</div>
+</div>
+
+</body>
+</html>

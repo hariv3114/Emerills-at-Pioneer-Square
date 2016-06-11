@@ -1,0 +1,53 @@
+								<div class="modal fade" id="bill_modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+															×
+														</button>
+														<h4 class="modal-title" id="myModalLabel">
+															<h1><b>Total Bill</b></h1>
+														</h4>
+													</div>
+													<div class="modal-body">
+														<div  class="container">
+															<div>
+                                                               <table class="table">
+                                                                    <thead>
+                                                                     <tr>
+                                                                        <th>Sr.no</th><th>Food Item</th><th>Quantity</th><th>Rate</th><th>Amount</th>                                                                    
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr ng-repeat="food in foods">
+                                                                            <td>{{$index+1}}</td>
+                                                                            <td>{{food.name}}</td>
+                                                                            <td>{{food.quantity}}</td>
+                                                                            <td>{{food.price}}</td>
+                                                                            <td>{{(food.price)*(food.quantity)}}</td>                                    
+                                                                        </tr>
+                                                                        <tr>
+                                                                        <td></td><td></td><td><b>Total </b></td><td>450</td>
+                                                                        </tr>
+                                                                        <tr><td></td><td></td><td><b>Tax </b></td><td>7.5</td></tr>
+                                                                        <tr><td></td><td></td><td><b>Net Total </b> </td><td>{{total}}</td></tr>                                                                        
+                                                                    </tbody>                                                        
+                                                                </table>
+                                                                <div class="btn btn-lg btn-danger">
+                                                                <h1>	<label> ${{total}} </label> </h1> (incl. of Taxes)
+                                                                </div>
+																
+															</div>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">
+															Close
+														</button>
+													</div>
+												</div>
+
+											</div>
+
+										</div>

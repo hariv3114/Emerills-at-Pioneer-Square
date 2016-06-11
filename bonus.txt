@@ -1,0 +1,17 @@
+!! Additionally used Bootstrap JS and CSS to improve user experience and interface.
+    * Responsive design
+    * Tested in MAC and Windows
+
+
+
+User Interface
+--------------
+> Food bill displayed as a focused modal.
+> Input boxes for providing food name and price are indicated for better user experience.
+> Tab travel available.
+> Familiar Icon to remove food item.
+> Over Flow on Item table to retain page size.
+
+Theme
+-----
+> Carousel as an app background with food as theme.

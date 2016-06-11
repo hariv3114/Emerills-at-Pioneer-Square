@@ -1,0 +1,12 @@
+1. Data set for food items and hence category search based addition
+    * Mongo data persistance
+    * Angular search
+    * Express Routing for new page from welcome page
+
+    /* Why not make it a single page app ? down arrows to a different part of the page */
+
+2. Navigation pane for all the same
+
+3. Exception handling / validation of input
+
+4. * Waiter identity, gratuity 

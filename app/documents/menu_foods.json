@@ -1,0 +1,44 @@
+[
+	{"name" :"Butter Chicken","price":15.0},
+	{"name" :"Saag Panneer","price":10.0},
+	{"name" :"Palak Paneer","price" : 12.5},
+	{"name" :"Dal Makahni","price":11.0},
+
+
+	{"name" :"Meatball Marinara","price":15},
+	{"name" :"Sun-Dried Tomato & Artichoke Bruschetta Flatbread","price":18.5},
+	{"name" :"Easy Bruschetta Chicken","price":16.25},
+	{"name" :"Italian Calzone","price":11.25},
+
+
+	{"name" :"Chicken Enchiladas","price":17.50},
+	{"name" :"Casserole","price":12.0},
+	{"name" :"Burrito","price":10.0},
+	{"name" :"Fajitas","price":14.00},
+
+	{"name" :"Sweet and Sour Pork","price":14.0},
+	{"name" :"Gung Pao Chicken","price": 13.5},
+	{"name" :"Teriyaki Chicken","price":18.0},
+	{"name" :"Orange Shrimp","price":16},
+
+	{"name" :"Roti","price":5.0},
+	{"name" :"Pulav","price":3.0},
+	{"name" :"Rice","price" : 2.5},
+
+
+	{"name" :"Pasta","price": 5},
+	{"name" :"Riso","price":8.5},
+	{"name" :"Parmigiano Bread","price":6.25},
+
+
+	{"name" :"Salad","price":7.50},
+	{"name" :"Chilli con Queso","price":2.0},
+	{"name" :"Tacos","price":8.0},
+
+
+	{"name" :"Wontons","price":4.0},
+	{"name" :"Crab Rangoon","price": 3.5},
+	{"name" :"Fried Rice","price": 8.0},
+	{"name" :"Chow Mein","price":6}
+
+]
