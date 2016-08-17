@@ -1,4 +1,4 @@
-# Node FOOD ITEMS App
+# EMERILLS AT PIONEER SQUARE - RESTAURANT TABLE App
 
 
 A single page application built on MEAN stack aligning to a simple interactive billing application at a restaurant table.
